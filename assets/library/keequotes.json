@@ -1,0 +1,685 @@
+{
+  "menu_main": [
+    {"id":"latest_template","name": "Templates","icon": "fas fa-layer-group","status": true, "class": "active", "func": "KQC.templates(this)","close": ["save_template","download_template","insert_media","share_design"],"open": ["create_template"]},
+    {"id":"my_design","name": "My Designs","icon": "fas fa-palette","status": true, "class": "","func": "KQC.templates(this)","close": ["save_template","download_template","insert_media","share_design"],"open": ["create_template"]},
+    {"id":"create_template","name": "Create New","icon": "fas fa-plus-square","status": true, "class": "","func": "KQC.create_new(this)","close": ["create_template"],"open": ["save_template","download_template","insert_media","share_design"]},
+    {"id":"save_template","name": "Save","icon": "fas fa-cloud-upload-alt","status": false, "class": "","func": "KQC.save_product()"},
+    {"id":"download_template","name": "Download","icon": "fas fa-cloud-download-alt","status": false, "class": "","func": "KQC.download_product_side()"},
+    {"id":"insert_media","name": "Insert","icon": "fas fa-photo-video","status": false, "class": "","func": "KQC.insert_product_side()"},
+    {"id":"continue_edit","name": "Continue Edit","icon": "fas fa-forward","status": false, "class": "","func": "KQC.continue_edit(this)","close": ["continue_edit"],"open": ["save_template","download_template","insert_media","share_design"]},
+    {"id":"share_design","name": "Share","icon": "fas fa-share","status": false, "class": "","func": "KQC.shareProductFromDetail()"}
+  ],
+  "controls": {
+    "editor_kq": false,
+    "add_elements": false,
+    "basic": true,
+    "tools": false,
+    "tools_select": "i-text",
+    "tools_extra": [],
+    "library_display": 0,
+    "module": false,
+    "module_select": "",
+    "lock": false,
+    "resize": ""
+  },
+  "library":[
+    {"id": "products",
+      "name": "Products",
+      "icon": "/assets/images/icons/templates.svg",
+      "status": true
+    },
+    {"id": "backgrounds",
+      "name": "Backgrounds",
+      "icon": "/assets/images/icons/background.svg",
+      "status": true,
+      "module": "module-backgrounds-list-kq"
+    },
+    {"id": "photos",
+      "name": "Photos",
+      "icon": "/assets/images/icons/photos.svg",
+      "status": true
+    },
+    {"id": "elements",
+      "name": "Elements",
+      "icon": "/assets/images/icons/element.svg",
+      "status": true
+    },
+    {"id": "texts",
+      "name": "Texts",
+      "icon": "/assets/images/icons/text.svg",
+      "status": true
+    },
+    {"id": "symbols",
+      "name": "Symbols",
+      "icon": "/assets/images/icons/brands.svg",
+      "status": true
+    },
+    {"id": "upload_media",
+      "icon": "/assets/images/icons/upload.svg",
+      "name": "Upload",
+      "status": true
+    }
+  ],
+  "library_detail": {},
+  "tools":{
+    "basic": ["pages","zoom_in","zoom_out","undo","redo","help","resize"],
+    "i-text": ["remove","color","textfont","textsize","textstyle","textalign","textshadow","textstroke","align","layer","flip","opacity","clone","unlock","lock"],
+    "textbox": ["remove","color","textfont","textsize","textstyle","textalign","textshadow","textstroke","align","layer","flip","opacity","clone","unlock","lock"],
+    "curvedText": ["remove","color","textfont","curvedtextstyle","textshadow","textstroke","align","layer","flip","opacity","clone","unlock","lock"],
+    "group": ["remove","color","ungroup","align","layer","flip","opacity","clone","unlock","lock"],
+    "path": ["remove","color","align","layer","flip","opacity","clone","unlock","lock"],
+    "rect": ["remove","color","align","layer","flip","opacity","clone","unlock","lock"],
+    "image": ["remove","applyfilters","makeitbackground","align","layer","flip","opacity","clone","unlock","lock"],
+    "circle": ["remove","color","align","layer","flip","opacity","clone","unlock","lock"],
+    "textstyle": ["textbold","textitalic","underline","linethrough","overline","uppercase","lowercase"],
+    "textalign": ["textalignleft","textaligncenter","textalignright","textalignjustify"],
+    "align": ["left","right","center","middle","top","bottom"],
+    "layer": ["layerup","layerdown","layertop","layerbottom"],
+    "activeSelection": ["remove","color","mergegroup","align","layer","flip","opacity","clone","unlock","lock"],
+    "flip": ["flipX","flipY","flipl45","flipr45"]
+  },
+  "tool_detail":[
+    {"id": "pages", "name":"Pages", "icon": "/assets/images/icons/file-alt-solid.svg", "status": true, "func": "KQ.diplay_pages()"},
+    {"id": "zoom_in", "name":"Zoom in", "icon": "/assets/images/icons/zoomin.svg", "status": true, "func": "EKQ.kq_zoom(1.1)"},
+    {"id": "zoom_out","name":"Zoom out", "icon": "/assets/images/icons/zoomout.svg", "status": true, "func": "EKQ.kq_zoom(0.9)"},
+    {"id": "undo","name":"Undo", "icon": "/assets/images/icons/undo.svg", "status": true , "func": "EKQ.undo()"},
+    {"id": "redo","name":"Redo", "icon": "/assets/images/icons/redo.svg", "status": true, "func": "EKQ.redo()"},
+    {"id": "resize","name":"Resize", "icon": "/assets/images/icons/resize.svg", "status": true, "func": "EKQ.resize()"},
+    {"id": "help","name":"Help", "icon": "/assets/images/icons/help.svg", "status": true, "func": "window.open('https://keequotes.com')"},
+    {"id": "remove","name":"Remove", "icon": "/assets/images/icons/remove.svg", "status": true,"func": "TKQ.removeObjects()"},
+    {"id": "applyfilters","name":"Filters", "icon": "/assets/images/icons/effect.svg", "status": true, "func": "TKQ.display_module(this)"},
+    {"id": "makeitbackground","name":"Make it BG", "icon": "/assets/images/icons/makeitbackground.svg", "status": true, "func": "TKQ.makeitbackground(this)"},
+    {"id": "color","name":"Color", "icon": "/assets/images/icons/color.svg", "status": true,"func": "TKQ.display_module(this)"},
+    {"id": "mergegroup","name":"Merge group", "icon": "/assets/images/icons/group.svg", "status": true , "func": "TKQ.mergegroup()"},
+    {"id": "ungroup","name":"UnGroup", "icon": "/assets/images/icons/ungroup.svg", "status": true,"func": "TKQ.ungroup()"},
+    {"id": "combine","name":"Combine", "icon": "/assets/images/icons/mask.svg", "status": true},
+    {"id": "textfont","name":"Font", "icon": "/assets/images/icons/textfont.svg", "status": true, "func": "TKQ.textfont(this)"},
+    {"id": "textsize","name":"Edit", "icon": "/assets/images/icons/textsize.svg", "status": true, "func": "TKQ.display_module(this)"},
+    {"id": "textstyle","name":"Style", "icon": "/assets/images/icons/effect.svg", "status": true,"func": "KQC.display_tools_extras(this)"},
+    {"id": "textalign","name":"Align", "icon": "/assets/images/icons/textalign.svg", "status": true, "func": "KQC.display_tools_extras(this)"},
+    {"id": "textshadow","name":"Text Shadow", "icon": "/assets/images/icons/textshadow.svg", "color":"#f57b784d", "status": true, "func": "TKQ.display_module(this)"},
+    {"id": "textstroke","name":"Stroke", "icon": "/assets/images/icons/textstroke.svg", "status": true,"func": "TKQ.display_module(this)"},
+    {"id": "curvedtextstyle","name":"Curved Style", "icon": "/assets/images/icons/curvedtextstyle.svg", "status": true, "func": "TKQ.display_module(this)"},
+    {"id": "align","name":"Align", "icon": "/assets/images/icons/align.svg", "status": true,"func": "KQC.display_tools_extras(this)"},
+    {"id": "layer","name":"Layer", "icon": "/assets/images/icons/layer.svg", "status": true, "func": "KQC.display_tools_extras(this)"},
+    {"id": "flip","name":"Flip", "icon": "/assets/images/icons/flip.svg", "status": true, "func": "KQC.display_tools_extras(this)"},
+    {"id": "flipX","name":"FlipX", "icon": "/assets/images/icons/flipx.svg", "status": true, "func": "TKQ.flip(this)"},
+    {"id": "flipY","name":"FlipY", "icon": "/assets/images/icons/flipy.svg", "status": true,"func": "TKQ.flip(this)"},
+    {"id": "flipl45","name":"Left 45", "icon": "/assets/images/icons/flipl45.svg", "status": true, "func": "TKQ.rotate(this)"},
+    {"id": "flipr45","name":"Right 45", "icon": "/assets/images/icons/flipr45.svg", "status": true,"func": "TKQ.rotate(this)"},
+    {"id": "opacity","name":"Opacity", "icon": "/assets/images/icons/opacity.svg", "status": true,"func": "TKQ.display_module(this)"},
+    {"id": "clone","name":"Clone", "icon": "/assets/images/icons/clone.svg", "status": true, "func": "TKQ.cloneObjects()"},
+    {"id": "unlock","name":"Unlock", "icon": "/assets/images/icons/unlock.svg", "status": false, "func": "TKQ.lock(this)"},
+    {"id": "lock","name":"Lock", "icon": "/assets/images/icons/lock.svg", "status": true,"func": "TKQ.lock(this)"},
+    {"id": "textbold","name":"Bold", "icon": "/assets/images/icons/textbold.svg", "status": true, "func": "TKQ.textstyle(this)"},
+    {"id": "textitalic","name":"Italic", "icon": "/assets/images/icons/textitalic.svg", "status": true ,"func": "TKQ.textstyle(this)"},
+    {"id": "underline","name":"Underline", "icon": "/assets/images/icons/underline.svg", "status": true,"func": "TKQ.textstyle(this)"},
+    {"id": "linethrough","name":"Line Through", "icon": "/assets/images/icons/linethrough.svg", "status": true,"func": "TKQ.textstyle(this)"},
+    {"id": "overline","name":"Overline", "icon": "/assets/images/icons/overline.svg", "status": true,"func": "TKQ.textstyle(this)"},
+    {"id": "uppercase","name":"Uppercase", "icon": "/assets/images/icons/uppercase.svg", "status": true,"func": "TKQ.textstyle(this)"},
+    {"id": "lowercase","name":"Lowercase", "icon": "/assets/images/icons/lowercase.svg", "status": true,"func": "TKQ.textstyle(this)"},
+    {"id": "textalignleft","name":"Left", "icon": "/assets/images/icons/textalignleft.svg", "status": true,"func": "TKQ.textstyle(this)"},
+    {"id": "textaligncenter","name":"Center", "icon": "/assets/images/icons/textaligncenter.svg", "status": true,"func": "TKQ.textstyle(this)"},
+    {"id": "textalignright","name":"Right", "icon": "/assets/images/icons/textalignright.svg", "status": true,"func": "TKQ.textstyle(this)"},
+    {"id": "textalignjustify","name":"Justify", "icon": "/assets/images/icons/textalignjustify.svg", "status": true,"func": "TKQ.textstyle(this)"},
+    {"id": "right","name":"Right", "icon": "/assets/images/icons/right.svg", "status": true, "func": "TKQ.align(this)"},
+    {"id": "center","name":"Center", "icon": "/assets/images/icons/center.svg", "status": true, "func": "TKQ.align(this)"},
+    {"id": "left","name":"Left", "icon": "/assets/images/icons/left.svg", "status": true, "func": "TKQ.align(this)"},
+    {"id": "bottom","name":"Bottom", "icon": "/assets/images/icons/bottom.svg", "status": true, "func": "TKQ.align(this)"},
+    {"id": "middle","name":"Middle", "icon": "/assets/images/icons/middle.svg", "status": true , "func": "TKQ.align(this)"},
+    {"id": "top","name":"Top", "icon": "/assets/images/icons/top.svg", "status": true, "func": "TKQ.align(this)"},
+    {"id": "layerup","name":"Up", "icon": "/assets/images/icons/layerup.svg", "status": true,"func": "TKQ.layerchange(this)"},
+    {"id": "layerdown","name":"Down", "icon": "/assets/images/icons/layerdown.svg", "status": true,"func": "TKQ.layerchange(this)"},
+    {"id": "layertop","name":"Top", "icon": "/assets/images/icons/layertop.svg", "status": true,"func": "TKQ.layerchange(this)"},
+    {"id": "layerbottom","name":"Bottom", "icon": "/assets/images/icons/layerbottom.svg", "status": true,"func": "TKQ.layerchange(this)"}
+  ],
+  "buttons": {
+    "add_element": {"id": "add_elements","icon": "/assets/images/icons/plus.svg","title": "Add Element"},
+    "cancel_tools": {"id": "cancel_tools","icon": "/assets/images/icons/close.png","title": "Close", "func": "TKQ.close_tools()"},
+    "cancel_tool_sub": {"id": "cancel_tool_sub","icon": "/assets/images/icons/redo.svg","title": "Cancel", "func": "KQC.cancel_tool_sub()"},
+    "upload_media": {"id": "upload_media","icon": "/assets/images/icons/upload.svg","title": "Upload"},
+    "close_tool": {"id": "close_tool","icon": "/assets/images/icons/close_tool.svg","title": "Close"}
+  },
+  "product_new": {
+    "width":800,
+    "height":600,
+    "fs":{
+      "objects":[],
+      "background":"transparent"
+    },
+    "bs":{
+      "objects":[],
+      "background":"transparent"
+    },
+    "cover_image_fs": null
+  },
+  "testjson": {
+    "width":500,
+    "height":500,
+    "bs":{"objects":[],"background":"#ffffff"},
+    "fs": {
+      "objects":[{"type":"path","originX":"left","originY":"top","left":247.06755757650808,"top":153.790646547989,"width":102.85,"height":172.43,"fill":"#A569BD","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1.11,"scaleY":1.11,"angle":29.59,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":[1,0,0,1,0,0],"skewX":0,"skewY":0,"pathOffset":{"x":139.94496676748156,"y":146.5643076260794},"path":[["M",135,102.5],["c",-0.7,2,-2,5.5,0.2,7],["c",-1.2,5,-2.1,10,-2.8,15],["c",-1.2,-2.6,-3.1,-5.1,-6,-4.9],["c",-0.7,0,-0.9,0.7,-0.7,1.2],["c",-0.2,0.2,-0.4,0.4,-0.4,0.8],["c",0.4,3.5,2.5,8.1,6.5,7.5],["c",-1.3,11.7,-1.2,23.6,0.2,35.4],["c",0,0.2,0.1,0.4,0.2,0.5],["c",-5.4,13,-11.1,26.2,-18.5,38.2],["c",0.9,-14.8,2.9,-29.4,6,-43.9],["c",5,-0.7,8.1,-5.9,9.1,-10.4],["c",0,-0.1,0,-0.2,0,-0.3],["c",0.2,-0.6,-0.1,-1.4,-0.9,-1.3],["c",-3.3,0.7,-5.5,2.8,-7.2,5.4],["c",0.1,-4.7,-1.2,-9.3,-4.1,-13.3],["c",-0.5,-0.6,-1.2,-0.4,-1.5,0.2],["c",-0.1,0.1,-0.1,0.2,-0.2,0.3],["c",-1.7,5.6,-3,15.2,3,18.8],["c",-1.8,8.2,-3.2,16.4,-4.3,24.7],["c",-1,-2.2,-2.3,-4.2,-3.9,-6.2],["c",-1.6,-2,-3.1,-4.2,-5.7,-4.9],["c",-0.3,-0.1,-0.5,0,-0.7,0.1],["c",-0.5,-0.1,-1,0.2,-1,0.8],["c",-0.1,4,1,7.9,3.6,11],["c",1.7,2,4.6,4.7,7.2,2.9],["c",-0.7,6.2,-1.2,12.4,-1.5,18.6],["c",0,0.2,0,0.4,0.1,0.5],["c",-6.2,9.4,-13.5,18,-22.8,24.9],["c",-1,0.7,0.2,2.2,1.1,1.5],["c",4.3,-3.2,8.2,-6.8,11.8,-10.6],["c",0.2,0.1,0.4,0.1,0.6,-0.1],["c",16.6,-9.4,30.4,-22.4,40.7,-38.4],["c",0,-0.1,0.1,-0.1,0.1,-0.2],["c",0,0,0,0,0.1,0],["c",5.9,-1.7,11,-4.5,15.5,-8.6],["c",4.2,2.1,9.7,-0.3,11.4,-4.6],["c",0.1,-0.1,0.1,-0.3,0.1,-0.4],["c",0,-0.3,-0.2,-0.7,-0.6,-0.8],["c",-1.7,-0.6,-3.6,-0.7,-5.4,-0.2],["c",1.1,-1.8,2.1,-3.5,3.2,-5.3],["c",0,0,0,0,0,0],["c",2.8,-0.1,5.7,-1.3,7.3,-3.7],["c",2.2,-3.1,1.1,-7.3,0.4,-10.7],["c",0,-0.2,-0.1,-0.3,-0.2,-0.4],["c",-0.3,-0.4,-0.7,-0.6,-1.2,-0.2],["c",-0.1,0.1,-0.2,0.2,-0.3,0.3],["c",-4,3.7,-10.1,7.9,-7.7,14.1],["c",-1.2,2,-2.4,4,-3.6,6],["c",0.2,-2.3,-0.4,-4.6,-1.6,-6.6],["c",0,0,0,0,0,-0.1],["c",0,0,0,-0.1,-0.1,-0.1],["c",-0.3,-0.5,-0.8,-0.5,-1.1,-0.3],["c",0,0,-0.1,0,-0.1,0.1],["c",0,0,0,0,0,0],["c",-0.1,0,-0.2,0.1,-0.2,0.2],["c",-1.7,1.8,-2.6,4.2,-2.6,6.6],["c",0,1.6,0.2,3.5,1.3,4.7],["c",-3.9,3.6,-8.2,6.1,-13.2,7.8],["c",3.1,-8.7,6.5,-17.2,10.4,-25.6],["c",0.1,0,0.1,0.1,0.2,0.1],["c",4.7,0.4,9,-2.4,10.5,-6.8],["c",0.9,-0.1,1.1,-1.7,0,-1.8],["c",0,0,0,0,0,0],["c",-0.2,-0.1,-0.5,-0.1,-0.8,-0.1],["c",-2.3,-0.1,-4.5,0.5,-6.4,1.6],["c",1.6,-4,2.4,-8.5,0,-11.6],["c",-0.7,-0.8,-1.9,-0.1,-1.7,0.8],["c",-3.2,4.3,-8.3,12.3,-3.4,16.7],["c",-4.3,9.1,-8,18.3,-11.3,27.8],["c",-0.2,0.1,-0.3,0.1,-0.4,0.3],["c",-2.8,4.3,-5.8,8.4,-9,12.2],["c",0.8,-3.7,0.5,-7.4,-0.8,-11.2],["c",-0.2,-0.5,-0.5,-0.6,-0.9,-0.6],["c",-0.3,0,-0.5,0.1,-0.7,0.3],["c",-2.5,2.6,-3.9,6.1,-3.9,9.7],["c",0,2.2,0.4,5,2.3,6.2],["c",-6.9,7.4,-14.8,13.8,-23.5,19.1],["c",13.7,-16.3,22.1,-36.7,30.3,-56.4],["c",1.1,-2.8,2.3,-5.5,3.5,-8.3],["c",8.2,-9.1,15.9,-18.7,23.1,-28.6],["c",2.1,0.7,5.6,-0.6,7.4,-1.1],["c",3.6,-1.1,6.7,-3.3,8.7,-6.5],["c",0.3,-0.5,0.1,-1.1,-0.4,-1.4],["c",-0.1,-0.2,-0.3,-0.3,-0.5,-0.3],["c",-4,-0.7,-7.6,0.9,-10.8,3.2],["c",4.4,-6.4,8.7,-13,12.7,-19.6],["c",1.3,1.4,3.8,0.5,5.4,-0.4],["c",3,-1.8,5.1,-4.6,6.2,-7.9],["c",0.1,-0.2,0.1,-0.3,0,-0.5],["c",0.6,-0.3,0.9,-1.4,0,-1.7],["c",-4.2,-1.5,-8.4,2.9,-10.9,6.4],["c",0.4,-2.1,0.7,-4.2,0.9,-6.4],["c",0.1,0,0.1,0,0.2,0],["c",5.5,-1.9,4.9,-8.3,3,-12.5],["c",0,0,-0.1,-0.1,-0.1,-0.1],["c",0,0,0,-0.1,0,-0.1],["c",0.4,-1.1,-1.3,-1.8,-1.7,-0.7],["c",-1.4,3.7,-7.1,8.8,-3.1,12.6],["c",0,0.1,-0.1,0.2,-0.1,0.3],["c",-0.2,2.1,-0.5,4.3,-0.9,6.4],["c",-0.2,-2,-1,-3.8,-2.2,-5.4],["c",0,-0.3,-0.3,-0.6,-0.6,-0.7],["c",-0.7,-0.4,-1.7,0.3,-1.4,1],["c",-1.4,2.9,-2.6,6,-1.8,9.2],["c",0.4,1.6,1.6,3.4,3.2,3.5],["c",-10,16.1,-21.2,31.4,-33.6,45.7],["c",10.4,-23.5,22,-46.4,33.8,-69.2],["c",0.1,0,0.2,-0.1,0.3,-0.1],["c",2.7,-2.1,5.6,-4,6.9,-7.3],["c",1.2,-3,0.9,-6.3,-0.6,-9.1],["c",-0.2,-0.4,-0.6,-0.6,-1,-0.5],["c",0.6,-0.9,-0.8,-1.9,-1.5,-1],["c",-5,5.2,-8.3,10.8,-6.1,18.1],["c",-7.2,13.9,-14.4,27.9,-21.2,42],["c",1.2,-9,2.4,-18,3.6,-27],["c",1.3,0.1,2.6,-0.3,3.6,-1.1],["c",2.1,-1.5,2.9,-4.1,3.5,-6.5],["c",0.1,-0.4,-0.1,-0.6,-0.3,-0.8],["c",-0.1,-0.3,-0.3,-0.5,-0.7,-0.6],["c",-2.7,-0.4,-5,0.5,-6.6,2.3],["c",-0.2,-0.9,-0.5,-1.7,-1.1,-2.4],["c",-1.3,-1.7,-3.6,-2.4,-5.5,-1.5],["c",-0.7,0.3,-0.7,1.1,-0.3,1.5],["c",-0.1,2.4,0.6,4.8,2.1,6.6],["c",0.7,0.8,1.9,1.9,3.1,2.1],["c",0.1,0.1,0.2,0.1,0.3,0.2],["c",-0.8,6.2,-1.7,12.4,-2.5,18.7],["c",-1.6,-2.6,-4.3,-4.4,-7.4,-5],["c",-0.8,-0.1,-1.1,0.6,-1,1.2],["c",-0.2,0.1,-0.4,0.3,-0.4,0.7],["c",0,4.6,3.6,8.1,8.1,7.6],["c",-0.4,3.1,-0.8,6.2,-1.3,9.4],["c",0,0,0,0,0,0],["c",-4.2,8.8,-8.2,17.7,-12.1,26.7],["c",-0.1,0.1,-0.2,0.2,-0.3,0.3],["c",-0.2,0.3,-0.3,0.5,-0.2,0.8],["c",-0.4,1.1,-0.9,2.1,-1.4,3.2],["c",-0.7,1.7,-1.4,3.3,-2.1,5],["c",-0.8,-8.3,-1.1,-16.5,-0.6,-24.8],["c",4.1,-0.4,6.1,-4.1,7.6,-7.5],["c",0.1,-0.2,0.1,-0.3,0.1,-0.5],["c",0,0,0,0,0,0],["c",0,-0.1,0,-0.2,-0.1,-0.2],["c",0,0,0,-0.1,-0.1,-0.1],["c",-0.1,-0.1,-0.1,-0.1,-0.2,-0.2],["c",0,0,0,0,0,0],["c",0,0,0,0,0,0],["c",-0.1,0,-0.1,-0.1,-0.2,-0.1],["c",-2.9,-1.5,-5.2,0.9,-6.7,3.7],["c",0.7,-7.5,1.8,-14.9,3.6,-22.2],["c",3.3,-0.6,5.8,-3.1,6.6,-6.4],["c",0.5,-2.1,0.8,-7.6,-1.4,-8.9],["c",-0.1,0,-0.1,-0.1,-0.2,-0.1],["c",-0.1,-0.7,-0.8,-1.3,-1.4,-0.7],["C",138.2,96.2,136.2,99.1,135,102.5],["z"],["M",150.7,114.7],["c",-3.2,0.3,-6.1,-2,-6.1,-5.6],["c",0,0,0,0,0,-0.1],["C",147.5,109.8,149.7,111.9,150.7,114.7],["z"],["M",153.2,90.6],["c",-0.1,0.2,0,0.4,0,0.5],["c",-0.8,-0.7,-2,-2.4,-2.2,-2.7],["c",-0.6,-1.3,-0.8,-2.6,-0.7,-4],["c",1.1,-0.1,2.2,0.5,2.7,1.6],["C",153.9,87.4,153.7,89.1,153.2,90.6],["z"],["M",156,91.8],["c",-0.1,-0.4,-0.4,-0.6,-0.8,-0.6],["c",0.4,-2.8,2.7,-4.8,5.7,-4.7],["C",160.2,88.8,158.6,92,156,91.8],["z"],["M",174.9,76.9],["c",-1.3,-5.7,1.6,-10.2,5.4,-14.4],["c",0,0.1,0,0.2,0.1,0.3],["C",183.6,69.2,179.5,73.3,174.9,76.9],["z"],["M",175.3,100.2],["c",0,0,0,0.1,0,0.1],["c",-0.8,-0.3,-1.3,-2.2,-1.4,-2.6],["c",-0.1,-0.8,-0.1,-1.7,0,-2.6],["c",0.2,-1.4,0.7,-2.7,1.3,-4],["C",176.8,93.9,176.9,97.4,175.3,100.2],["z"],["M",180.8,86.8],["c",-2.6,-2.3,0.2,-5.8,2.1,-8.7],["C",184,81.3,184.3,85.3,180.8,86.8],["z"],["M",180.5,97.7],["c",1.6,-2.5,5.2,-7.5,8.6,-7.4],["c",-0.6,1.7,-1.4,3.2,-2.6,4.6],["C",186,95.5,181.4,99.6,180.5,97.7],["z"],["M",166.4,122.7],["c",-0.3,0.1,-1.1,0.3,-1.9,0.4],["c",3.2,-3.1,7.1,-6,11.6,-5.8],["c",-1.5,1.9,-3.4,3.3,-5.7,4.3],["C",169.1,122.1,167.7,122.5,166.4,122.7],["z"],["M",130,197.6],["c",-2,-1.1,-1.6,-5.7,-1.2,-7.3],["c",0.4,-1.7,1.1,-3.2,2.1,-4.6],["C",131.9,189.7,131.7,193.7,130,197.6],["z"],["M",154.6,152.5],["c",-3.1,-3.5,0.8,-9.6,3.4,-13.1],["C",159.4,143.3,156.6,149.1,154.6,152.5],["z"],["M",156.2,153.7],["c",1.6,-2.9,4.5,-4.8,7.7,-5],["C",162.7,151.7,159.6,153.7,156.2,153.7],["z"],["M",159.2,172],["c",-0.8,-1.1,-0.8,-3.6,-0.6,-4.6],["c",0.2,-1.2,0.6,-2.3,1.3,-3.2],["C",161,166.6,161,169.9,159.2,172],["z"],["M",167.6,161.5],["c",-1.3,-4.4,3.1,-7.8,6.4,-10.6],["c",0.5,2,0.8,4.2,0.3,6.2],["C",173.4,159.9,170.4,161.4,167.6,161.5],["z"],["M",160.8,173.4],["c",2.1,-2.1,4.4,-3.6,7.4,-3.1],["C",166.8,172.8,163.6,174.1,160.8,173.4],["z"],["M",109.4,179.5],["c",1.4,1.8,2.5,3.7,3.2,5.9],["c",0,0,-0.1,0,-0.1,0.1],["c",-2.3,1.8,-5.5,-3.1,-6.4,-4.8],["c",-1.1,-2,-1.5,-4.2,-1.6,-6.4],["C",106.5,175.1,108.2,177.9,109.4,179.5],["z"],["M",118.5,156.7],["c",-3.8,-3.1,-3.3,-9.7,-2.2,-14.4],["C",118.9,146.6,119.7,151.7,118.5,156.7],["z"],["M",120.6,157.3],["c",1.4,-3.1,3.1,-6.3,6.3,-7.6],["C",125.9,152.9,123.8,156.3,120.6,157.3],["z"],["M",134.2,134.9],["c",0.8,-2.1,2.4,-5.4,4.4,-5.1],["C",137.6,131.8,136.4,134,134.2,134.9],["z"],["M",131.5,127.4],["c",-2.9,0.4,-4,-3.5,-4.3,-5.9],["C",129.5,121.9,130.9,125.2,131.5,127.4],["z"],["M",140.9,96.1],["c",0.2,0.3,0.4,0.4,0.7,0.4],["c",0.8,1.5,0.5,5.2,0.3,6.3],["c",-0.7,2.7,-2.7,4.8,-5.5,5.2],["c",-1.4,-1.2,0.7,-5.9,1.3,-7.1],["C",138.5,99.1,139.6,97.6,140.9,96.1],["z"]]},{"type":"path","originX":"left","originY":"top","left":68.56499999999994,"top":287.90360417060197,"width":276,"height":1.6,"fill":"#17202A","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1.31,"scaleY":1.31,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":[1,0,0,1,0,0],"skewX":0,"skewY":0,"pathOffset":{"x":138,"y":151.8},"path":[["M",22,151],["H",0],["v",1.6],["h",22],["V",151],["z"],["M",276,151],["h",-22],["v",1.6],["h",22],["V",151],["z"]]},{"type":"i-text","originX":"center","originY":"center","left":249.65,"top":373.16,"width":172.36,"height":18.08,"fill":"#17202A","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1.71,"scaleY":1.71,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"text":"FLORAL HOUSE","fontSize":"16","fontWeight":"normal","fontFamily":"Open Sans","fontStyle":"","lineHeight":1.16,"textDecoration":"","textAlign":"left","textBackgroundColor":"","charSpacing":"300","styles":{"0":{"1":{},"2":{},"3":{},"4":{},"5":{},"6":{},"7":{},"8":{},"9":{},"10":{},"11":{},"12":{}}}},{"type":"curvedText","originX":"left","originY":"top","left":98.97,"top":93.08,"width":299.07,"height":142.84,"fill":"#000000","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"text":"This is a curved text","fontSize":30,"fontWeight":300,"fontFamily":"Open Sans","fontStyle":"","lineHeight":1.16,"textDecoration":"","textAlign":"center","textBackgroundColor":"","charSpacing":0,"radius":150,"spacing":10,"reverse":false,"effect":"curved","range":5,"smallFont":10,"largeFont":30}],"background":"#EBDEF0"}
+  },
+  "product_active": {},
+  "loading": {
+    "sunny": "/assets/images/loading/loading-gif.svg",
+    "cloud": "/assets/images/loading/cloud-dark.svg"
+  },
+  "modules": {
+    "textfont": {
+      "id": "module-textfont-kq",
+      "title": "Fonts",
+      "data": [
+  {
+    "name":"Open Sans",
+    "value":"Open Sans"
+  },
+  {
+    "name":"Open Sans Condensed",
+    "value":"Open Sans Condensed"
+  },
+  {
+    "name":"Roboto",
+    "value":"Roboto"
+  },
+  {
+    "name":"Kufam",
+    "value":"Kufam"
+  },
+  {
+    "name":"Montserrat",
+    "value":"Montserrat"
+  },
+  {
+    "name":"Oswald",
+    "value":"Oswald"
+  },
+  {
+    "name":"Raleway",
+    "value":"Raleway"
+  },
+  {
+    "name":"Playfair Display",
+    "value":"Playfair Display"
+  },
+  {
+    "name":"Noto Serif",
+    "value":"Noto Serif"
+  },
+  {
+    "name":"Anton",
+    "value":"Anton"
+  },
+  {
+    "name":"Arimo",
+    "value":"Arimo"
+  },
+  {
+    "name":"Yanone Kaffeesatz",
+    "value":"Yanone Kaffeesatz"
+  },
+  {
+    "name":"Lobster",
+    "value":"Lobster"
+  },
+  {
+    "name":"Dancing Script",
+    "value":"Dancing Script"
+  },
+  {
+    "name":"Pacifico",
+    "value":"Pacifico"
+  },
+  {
+    "name":"Play",
+    "value":"Play"
+  },
+  {
+    "name":"Maven Pro",
+    "value":"Maven Pro"
+  },
+  {
+    "name":"Alfa Slab One",
+    "value":"Alfa Slab One"
+  },
+  {
+    "name":"Playfair DisplaySC",
+    "value":"Playfair Display SC"
+  },
+  {
+    "name":"Bangers",
+    "value":"Bangers"
+  },
+  {
+    "name":"Sigmar One",
+    "value":"Sigmar One"
+  },
+  {
+    "name":"Lalezar",
+    "value":"Lalezar"
+  },
+  {
+    "name":"Baloo Chettan2",
+    "value":"Baloo Chettan 2"
+  },
+  {
+    "name":"Trirong",
+    "value":"Trirong"
+  },
+  {
+    "name":"Jura",
+    "value":"Jura"
+  },
+  {
+    "name":"Alegreya Sans SC",
+    "value":"Alegreya Sans SC"
+  },
+  {
+    "name":"SairaExtraCondensed",
+    "value":"Saira Extra Condensed"
+  },
+  {
+    "name":"Bevan",
+    "value":"Bevan"
+  },
+  {
+    "name":"Bungee",
+    "value":"Bungee"
+  },
+  {
+    "name":"Bungee Inline",
+    "value":"Bungee Inline"
+  },
+  {
+    "name":"Bungee Shade",
+    "value":"Bungee Shade"
+  },
+  {
+    "name":"Bungee Outline",
+    "value":"Bungee Outline"
+  },
+  {
+    "name":"Bungee Hairline",
+    "value":"Bungee Hairline"
+  },
+  {
+    "name":"Alegreya SC",
+    "value":"Alegreya SC"
+  },
+  {
+    "name":"Maitree",
+    "value":"Maitree"
+  },
+  {
+    "name":"Srisakdi",
+    "value":"Srisakdi"
+  },
+  {
+    "name":"Thasadith",
+    "value":"Thasadith"
+  },
+  {
+    "name":"Manuale",
+    "value":"Manuale"
+  },
+  {
+    "name":"Farsan",
+    "value":"Farsan"
+  },
+  {
+    "name":"Amatic SC",
+    "value":"Amatic SC"
+  },
+  {
+    "name":"Charm",
+    "value":"Charm"
+  },
+  {
+    "name":"Charmonman",
+    "value":"Charmonman"
+  }
+]
+    },
+    "opacity": {
+      "id": "module-opacity-kq",
+      "title": "Opacity",
+      "data": {
+        "opacity": 100
+      }
+    },
+    "textsize": {
+      "id": "module-textsize-kq",
+      "title": "Text",
+      "data": {}
+    },
+    "curvedtextstyle": {
+      "id": "module-curvedtextstyle-kq",
+      "title": "Text"
+    },
+    "textstroke": {
+      "id": "module-textstroke-kq",
+      "title": "Border"
+    },
+    "textshadow": {
+      "id": "module-textshadow-kq",
+      "title": "Shadow color"
+    },
+    "color": {
+      "id": "module-color-kq",
+      "title": "Color",
+      "slug": "/background?type_data=solid",
+      "solid": {
+        "data": [],
+        "detail": []
+      }
+    },
+    "applyfilters": {
+      "id": "module-applyfilters-kq",
+      "title": "Apply Filters",
+      "data": {
+      }
+    }
+  },
+  "library_modules": {
+    "pages": {
+      "id": "pages",
+      "name": "Pages",
+      "icon": "/assets/images/icons/close_tool.svg",
+      "module": "module-pages-list-kq"
+    },
+    "products": {
+      "id": "products",
+      "name": "Products",
+      "icon": "/assets/images/icons/templates.svg",
+      "module": "module-products-list-kq",
+      "slug": "/product/type?list_cat=1&list_products=3",
+      "list_types": null,
+      "list_products": null,
+      "query_products": {"page": 1,"number": 21}
+    },
+    "products_filter": {
+      "id": "products",
+      "name": "Products",
+      "icon": "/assets/images/icons/close_tool.svg",
+      "module": "module-products-filter-kq",
+      "slug": "/product?object=products",
+      "category": "/product/category?types=",
+      "tag": "/product/tag?tags=",
+      "list_categories": null,
+      "list_products": null,
+      "list_tags": [],
+      "tags_select": [],
+      "number_search": 10,
+      "total": 0,
+      "show_filter": false,
+      "query": {"page": 1,"number": 21,"types": "","categories": "", "tags": ""},
+      "loadMore": false
+    },
+    "backgrounds": {
+      "id": "backgrounds",
+      "name": "Backgrounds",
+      "icon": "/assets/images/icons/background.svg",
+      "status": true,
+      "module": "module-backgrounds-list-kq",
+      "slug": "/background",
+      "transparent": {"label":"Transparent","color":"transparent","img": "/assets/images/backgrounds/transparent.jpg"},
+      "list_type": {
+        "solid": {"id": "solid","name":"Solid Color","number":1, "data": [], "func": "KQ.display_library_detail(this)","module": "backgrounds_solid"},
+        "gradient": {"id": "gradient","name":"Gradient Color","number":5, "data": [], "func": "KQ.display_library_detail(this)","module": "backgrounds_gradient"},
+        "repeat": {"id": "repeat","name":"Pattern","number":3, "data": [], "func": "KQ.display_library_detail(this)","module": "backgrounds_repeat"},
+        "normal": {"id": "normal","name":"Other", "number":3, "data": [], "func": "KQ.display_library_detail(this)","module": "backgrounds_normal"}
+      }
+    },
+    "backgrounds_solid": {
+      "id": "backgrounds",
+      "name": "Solid Color",
+      "module": "module-backgrounds-solid-kq",
+      "slug": "/background?type_data=solid",
+      "solid": {
+        "data": [],
+        "detail": []
+      },
+      "color": {"value": "","type":"color", "title": "Color"}
+    },
+    "backgrounds_gradient": {
+      "id": "backgrounds",
+      "name": "Gradient Color",
+      "module": "module-backgrounds-normal-kq",
+      "slug": "/background?type_data=gradient",
+      "tag": "/background/category?tags=",
+      "hot_topic": "/background/type?types=gradient&number=100",
+      "icon": "/assets/images/icons/close_tool.svg",
+      "query": {"page": 1,"number": 9,"tags": "", "types": "","type_data": "gradient"},
+      "total": 0,
+      "number_search": 10,
+      "show_filter": false,
+      "tags_select": [],
+      "tags": [],
+      "hot_topics": [],
+      "images": {
+        "data": [],
+        "detail": []
+      }
+    },
+    "backgrounds_repeat": {
+      "id": "backgrounds",
+      "name": "Pattern",
+      "module": "module-backgrounds-normal-kq",
+      "slug": "/background?type_data=repeat",
+      "tag": "/background/category?tags=",
+      "hot_topic": "/background/type?types=repeat&number=100",
+      "icon": "/assets/images/icons/close_tool.svg",
+      "query": {"page": 1,"number": 9,"tags": "", "types": "","type_data": "repeat"},
+      "total": 0,
+      "number_search": 10,
+      "show_filter": false,
+      "tags_select": [],
+      "tags": [],
+      "hot_topics": [],
+      "images": {
+        "data": [],
+        "detail": []
+      }
+    },
+    "backgrounds_normal": {
+      "id": "backgrounds",
+      "name": "Backgrounds Image",
+      "module": "module-backgrounds-normal-kq",
+      "slug": "/background?type_data=normal",
+      "tag": "/background/category?tags=",
+      "hot_topic": "/background/type?types=normal&number=100",
+      "icon": "/assets/images/icons/close_tool.svg",
+      "query": {"page": 1,"number": 9,"tags": "", "types": "","type_data": "normal"},
+      "total": 0,
+      "number_search": 10,
+      "show_filter": false,
+      "tags_select": [],
+      "tags": [],
+      "hot_topics": [],
+      "images": {
+        "data": [],
+        "detail": []
+      }
+    },
+    "photos": {
+      "id": "photos",
+      "name": "Photo",
+      "module": "module-photos-list-kq",
+      "slug": "/photo?library=photo",
+      "tag": "/photo/category?tags=",
+      "hot_topic": "/photo/type?number=100",
+      "unsplash": {"url": "https://api.unsplash.com/search/photos?client_id=UXLXuYSobDmQYY6OCg8CYxV2YVFAReE2j5bRmDkR7LU","images": [],"query_array": {"query": "", "per_page": 50, "page": 1 }},
+      "icon": "/assets/images/icons/close_tool.svg",
+      "query": {"page": 1,"number": 5,"tags": "", "types": ""},
+      "total": 0,
+      "number_search": 10,
+      "show_filter": false,
+      "tags_select": [],
+      "tags": [],
+      "keywords": [],
+      "hot_topics": [],
+      "images": {
+        "data": [],
+        "detail": []
+      }
+    },
+    "elements": {
+      "id": "elements",
+      "name": "Elements",
+      "module": "module-elements-list-kq",
+      "slug": "/element?object=normal",
+      "tag": "/element/category?tags=",
+      "hot_topic": "/element/type?number=100",
+      "icon": "/assets/images/icons/close_tool.svg",
+      "query": {"page": 1,"number": 21,"category": "", "types": ""},
+      "total": 0,
+      "number_search": 10,
+      "show_filter": false,
+      "tags_select": [],
+      "tags": [],
+      "hot_topics": [],
+      "images": {
+        "data": [],
+        "detail": []
+      }
+    },
+    "texts": {
+      "id": "texts",
+      "name": "Text",
+      "module": "module-texts-list-kq",
+      "slug": "/text?object=normal",
+      "tag": "/text/category?tags=",
+      "hot_topic": "/text/type?number=100",
+      "icon": "/assets/images/icons/close_tool.svg",
+      "query": {"page": 1,"number": 21,"tags": "", "types": ""},
+      "total": 0,
+      "number_search": 10,
+      "show_filter": false,
+      "tags_select": [],
+      "tags": [],
+      "hot_topics": [],
+      "images": {
+        "data": [],
+        "detail": []
+      },
+      "add_texts": [
+        {"id": "short-text","content": "Add a short text","class": "item-text short-text","style": {"fill": "#666","selectable": true,"lineHeight": 1,"lockUniScaling": false,"width": 350,"fontSize": 32}},
+        {"id": "long-text","content": "Add a long text","class": "item-text long-text","style": {"fill": "#666","selectable": true,"fixedWidth": 350,"lockUniScaling": false, "width": 350,"fontSize": 42}},
+        {"id": "curved-text","content": "Add a curved text","class": "item-text curved-text","style": {"text": "Add a curved text","fill": "#f5be32","fontFamily": "OpenSans","fontSize":35, "radius":  450}}
+      ]
+    },
+    "symbols": {
+      "id": "symbols",
+      "name": "Symbol",
+      "module": "module-symbols-list-kq",
+      "slug": "/symbol?object=normal",
+      "tag": "/symbol/category?tags=",
+      "hot_topic": "/symbol/type?number=100",
+      "icon": "/assets/images/icons/close_tool.svg",
+      "query": {"page": 1,"number": 21,"tags": "", "types": ""},
+      "total": 0,
+      "number_search": 10,
+      "show_filter": false,
+      "tags_select": [],
+      "tags": [],
+      "hot_topics": [],
+      "images": {
+        "data": [],
+        "detail": []
+      }
+    },
+    "upload_media": {
+      "id": "upload_media",
+      "name": "Upload",
+      "module": "module-upload-media-kq",
+      "slug": "/user/image?library=upload_media",
+      "upload": "/user/image",
+      "delete": "/user/image/delete/",
+      "icon": "/assets/images/icons/close_tool.svg",
+      "icon_upload": "/assets/images/icons/upload-image.svg",
+      "query": {"page": 1,"number": 21},
+      "total": 0,
+      "maxsize": 300,
+      "number_search": 10,
+      "show_filter": false,
+      "tags_select": [],
+      "tags": [],
+      "keywords": [],
+      "hot_topics": [],
+      "images": {
+        "data": null,
+        "detail": []
+      }
+    }
+  },
+  "templates": {
+    "latest_template": {
+      "id": "latest-template",
+      "icon": "/assets/images/icons/close_tool.svg",
+      "module": "module-latest-template-kq",
+      "slug": "/product/type?list_cat=1&list_products=10",
+      "product_slug": "/product?object=products",
+      "type": "/product/category?list_products=10&types=",
+      "tag": "/product/tag?tags=",
+      "category": "/product?list_products=10&categories=",
+      "detail_product": "/product/detail/",
+      "loading": "/assets/images/loading/cloud-dark.svg",
+      "display": "types",
+      "breadcrumb": {},
+      "list_types": null,
+      "list_categories": null,
+      "list_products": null,
+      "list_product_search": [],
+      "query_products": {"page": 1,"number": 12},
+      "total": null,
+      "glide": {
+        "type":"carousel",
+        "startAt":0,
+        "perView":6,
+        "rewind": false,
+        "breakpoints":{
+          "1920":{
+            "perView":6
+          },
+          "1124":{
+            "perView":3
+          },
+          "768":{
+            "perView":2
+          },
+          "479":{
+            "perView":1
+          }
+        }
+      },
+      "show_filter": false,
+      "list_tags": [],
+      "tags_select": [],
+      "number_search": 10,
+      "query": {"page": 1,"number": 21,"types": "","categories": "", "tags": ""}
+    },
+    "my_design": {
+      "id": "my-design",
+      "module": "module-mydesign-template-kq",
+      "slug": "/user/category?number=100",
+      "add_category": "/user/category",
+      "update_category": "/user/category/update/",
+      "delete_cat": "/user/category/delete/",
+      "category": "/user/product?list_products=10&categories=",
+      "detail_product": "/user/product/detail/",
+      "update_product": "/user/product/update/",
+      "create_product": "/user/product",
+      "del_product": "/user/product/delete/",
+      "loading": "/assets/images/loading/cloud-dark.svg",
+      "display": "category",
+      "button": {"view": "/assets/images/icons/view_detail.svg","delete": "/assets/images/icons/close_radius.svg","update": "/assets/images/icons/update_product.svg"},
+      "breadcrumb": {},
+      "categories": [],
+      "list_products": null,
+      "query_products": {"page": 1,"number": 10},
+      "total": null
+    }
+  },
+  "templates_detail": {},
+  "author_url": "?utm_source=keequotes&utm_medium=referral"
+}

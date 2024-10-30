@@ -1,0 +1,8 @@
+{
+  "apiVersion": 2,
+  "name": "keequotes-graphic-design-online/my-design-graphic",
+  "title": "keequotes graphic design",
+  "icon": "dashicons dashicons-format-image",
+  "category": "layout",
+  "editorScript": "file:./assets/js/block.js"
+}

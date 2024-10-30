@@ -1,0 +1,109 @@
+.menu_main ul{
+    display: inline-block;
+    float: right;
+}
+.menu_main {
+    background-color: #17161D;
+    padding: 15px;
+}
+.menu_main .logo{
+    display: inline-block;
+    float: left;
+}
+.menu_main .logo img{
+    max-height: 24px;
+}
+.menu_main ul li {
+    margin: 0 20px 0 0;
+}
+.menu_main ul li a {
+    color: #AFAFBF;
+    font-size: 12px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-weight: 700;
+    border: 1px solid #595959;
+    padding: 8px 15px;
+}
+.menu_main ul li a.active, .menu_main ul li a:hover{
+    color: #000;
+    background-color: #F1B10E;
+}
+.user-info{
+    cursor: pointer;
+    height: 24px;
+    display: inline-block;
+    float: right;
+    position: relative;
+}
+.user-info .profile-ico{
+    position: relative;
+    width: 32px;
+    max-height: 32px;
+    border-radius: 5px;
+    top: -5px;
+}
+.user-info .arow-ico{
+    position: relative;
+    width: 15px;
+    vertical-align: top;
+    top: 5px;
+    margin-left: 5px;
+}
+.user-info .data-info{
+    position: absolute;
+    z-index: 9;
+    width: 120px;
+    background: #fff;
+    border: 1px solid #AFAFBF;
+    border-radius: 4px;
+    top: 36px;
+    right: 0px;
+    display: none;
+}
+.user-info:hover .data-info{
+    display: block;
+}
+.user-info .data-info:before{
+    content: "";
+    position: absolute;
+    right: 25px;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-top: 10px solid #fff;
+    transform: rotate(
+            180deg);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    top: -10px;
+}
+.user-info .data-info a{
+    padding: 0;
+    display: block;
+    border: none;
+    text-align: center;
+    margin: 10px 0;
+    text-decoration: none;
+    color: #AFAFBF;
+    font-size: 12px;
+}
+.user-info .data-info a:hover{
+    background-color: transparent;
+    color: #000;
+}
+.module-latest-template-kq .glide__slides .glide__slide {
+    text-align: center;
+    overflow: hidden;
+}
+.module-latest-template-kq .glide__slides .glide__slide img{
+    max-width: 100%;
+}
+.latest-templates{
+    padding: 20px;
+    color: #AFAFBF;
+}
+.controls-user-products,
+.item-type-product label {
+    color: #AFAFBF;
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fontawesome-css",
+    "href": "/assets/library/fontawesome-5.15.4/css/all.min.css"
+  },
+  {
+  "id": "animate.vue.3.5.1",
+  "href": "/assets/css/animate.vue.3.5.1.css"
+  },
+  {
+    "id": "glide.core.min",
+    "href": "/assets/css/glide.core.min.css"
+  },
+  {
+    "id": "glide.theme.min",
+    "href": "/assets/css/glide.theme.min.css"
+  },
+  {
+    "id": "layout-css",
+    "href": "/assets/css/layout.css"
+  },
+  {
+    "id": "module-css",
+    "href": "/assets/css/module.css"
+  }
+]
